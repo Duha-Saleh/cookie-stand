@@ -1,100 +1,62 @@
+"use strict";
+var workingHours = ["6 am", "7am", "8 am", "10 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"];
+var newNum = 0;
+var finalsaleh = 0;
+var Seattle = {
 
-var Seattle ={ 
 
     randomValue: Math.random(),
     minValue: 23,
     maxValue: 65,
     AvgValue: 6.3,
-        getCust: function(minValue,maxValue) {
-    Seattle.Cust= generateaRandomAde(minValue,maxValue);
-        }
-    };
-    
-    function generateaRandomAde(minValue,maxValue)
-    {return Math.floor(Seattle.randomValue *(maxValue -minValue+1))+minValue};
-    Seattle.getCust(23,65);
-    console.log(Seattle);
-    
-    
+    custum: [],
+    cookiesperhour: [],
+    totalCookies: 0,
 
-var h1 =Document.creatElement (h1)
-h1.innerHTML=Seattle.Hours
-    
-//     var Tokyo ={ 
+    getCust: function () {
+        for (var i = 0; i < workingHours.length; i++) { }
+        newNum = generateaRandCustomers(this.maxValue, this.minValue);
+        this.custum.push(newNum);
+    },
 
-//         randomValue: Math.random(),
-//         minValue: 23,
-//         maxValue: 65,
-//         AvgValue: 6.3,
-//             getCust: function(minValue,maxValue) {
-//              Tokyo.Cust= generateaRandomAde(minValue,maxValue);
-//             }
-//         };
-        
-//         function generateaRandomAde(minValue,maxValue)
-//         {return Math.floor(Tokyo.randomValue *(maxValue -minValue+1))+minValue};
-//         Seattle.getCust(23,65);
-//         console.log(Tokyo);
-        
-//         var Tokyo ={ 
-        
-//             randomValue: Math.random(),
-//             minValue: 23,
-//             maxValue: 65,
-//             AvgValue: 6.3,
-//                 getCust: function(minValue,maxValue) {
-//                     Tokyo.Cust= generateaRandomAde(minValue,maxValue);
-//                 }
-//             };
-            
-//             function generateaRandomAde(minValue,maxValue)
-//             {return Math.floor(Tokyo.randomValue *(maxValue -minValue+1))+minValue};
-//             Tokyo.getCust(23,65);
-//             console.log(Tokyo);
+    getcookiessoldbyhour: function(){
+        for ( var i = 0; i < workingHours.length; i++) {
+    var numofcookies = Math.floor(this.AvgValue * this.custum[i]);
+    this.cookiesperhour.push(numofcookies);
+    this.totalCookies = this.totalCookies + numofcookies;
+}
+},
+render: function() {
+    var parentElement = document.getElementById('Sales');
+    var article = document.createElement('article');
+    parentElement.appendChild(article);
+    var h2 = documetn.createElement('h2');
+    h2.textcontent = "Seatle";
 
-            
-//     var Tokyo ={ 
+    article.append(h2);
+    var ul = document.createElement('li');
+    for (var i = 0; i < workingHours.length; i++) {
+        var li = document.createElement('li');
+        li.textContent = workingHours[i] + ':' + this.cookiesperhour[i];
+        ul.appendChild(li);
+ 
+    var li = document.createElement('li');
+    li.textContent = 'Total : ' * this.cookiesperhour[i];
+    ul.appendChild(li);
+    articles.appendChild(li);
+    }
+},
 
-//         randomValue: Math.random(),
-//         minValue: 23,
-//         maxValue: 65,
-//         AvgValue: 6.3,
-//             getCust: function(minValue,maxValue) {
-//              Tokyo.Cust= generateaRandomAde(minValue,maxValue);
-//             }
-//         };
-        
-//         function generateaRandomAde(minValue,maxValue)
-//         {return Math.floor(Tokyo.randomValue *(maxValue -minValue+1))+minValue};
-//         Seattle.getCust(23,65);
-//         console.log(Tokyo);
-        
-//         var Tokyo ={ 
-        
-//             randomValue: Math.random(),
-//             minValue: 23,
-//             maxValue: 65,
-//             AvgValue: 6.3,
-//                 getCust: function(minValue,maxValue) {
-//                     Tokyo.Cust= generateaRandomAde(minValue,maxValue);
-//                 }
-//             };
-            
-//             function generateaRandomAde(minValue,maxValue)
-//             {return Math.floor(Tokyo.randomValue *(maxValue -minValue+1))+minValue};
-//             Tokyo.getCust(23,65);
-//             console.log(Tokyo);
-// // var ul =document.
+    generateaRandCustomers: function(maxValue,minValue){
+        var randomValue =Math.random();
+        return Math.floor(randomValue*(maxValue * 1)+minValue);
+    }
+ 
 
-// // cookies.getCust(23,65);
-// // };
-// // console.log(getCust);
+};
 
-// // getCust: function(minValue,maxValue) {
-// //     cookies.cust= generateaRandomAde(minValue,maxValue)
-// //         },  
-    
-    
-// //     cookies.getCust(23,65);
-// //     };
-// //     console.log(getCust);
+
+Seattle.generateaRandCustomers();
+Seattle.getcookiessoldbyhour();
+Seattle.render();
+console.log(Seattle);
