@@ -142,3 +142,18 @@ for (var i = 0; i < locationArr.length; i++) {
 }
 
 createTableFooter();
+
+
+
+
+var kittensForm =document.getElementById("kittensForm");
+kittensForm.addEventListener('submit',call)
+function call(event) {event.preventDefault();}
+{alert("submit it");
+var name=event.target.name;
+var Customermin=event.target.customermin;
+var Customermax=event.target.customermax;
+var avg=event.target.avarage;
+
+
+}
