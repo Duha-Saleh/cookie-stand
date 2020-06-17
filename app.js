@@ -323,7 +323,7 @@
 // Seattle.render();
 // console.log(Seattle);
 
-'use strict'
+'use strict';
 var locationArr = [];
 var hourArr = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 function Location(name, minHourCus, maxHourCus, avgCuscook) {
@@ -337,10 +337,10 @@ function Location(name, minHourCus, maxHourCus, avgCuscook) {
     locationArr.push(this);
 }
 Location.prototype.getaRandomCus = function () {
-    for (var i = 0; i< hourArr.length; i++) {
-  var randomCust = getaRandomCus(this.minHourCus,this.maxHourCus);
-   this.customerPerHour.push(randomCust);
-}
+    for (var i = 0; i < hourArr.length; i++) {
+        var randomCust = getaRandomCus(this.minHourCus, this.maxHourCus);
+        this.customerPerHour.push(randomCust);
+    }
 
 };
 
@@ -355,6 +355,7 @@ Location.prototype.calculateCookiesPerHour = function () {
 
 Location.prototype.render = function () {
     var table = document.getElementById('Cookies Table');
+    var tr=document.createElement('tr');
     var td = document.createElement('td');
     td.textContent = this.name;
     tr.appendChild(td);
@@ -373,7 +374,7 @@ Location.prototype.render = function () {
 function createTheTable() {
     var parentElement = document.getElementById("Salmon Cookies");
     var table = document.createElement('table');
-    table.setAttribute('id','cookiesTable');
+    table.setAttribute('id', 'cookiesTable');
     parentElement.appendChild(table);
 
 }
@@ -382,7 +383,7 @@ function createTableHeader() {
     var headerTr = document.createElement('tr');
     var Emptyheader = document.createElement('th');
     headerTr.appendChild(Emptyheader);
-    for (i = 0; i < hourArr.length; i++) {
+    for (var i = 0; i < hourArr.length; i++) {
         var headerTh = document.createElement('th');
         headerTh.textContent = hourArr[i];
         headerTr.appendChild(headerTh);
