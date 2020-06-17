@@ -344,6 +344,13 @@ Location.prototype.getaRandomCus = function () {
 
 };
 
+
+function getaRandomCus(maxValue, minValue) {
+    var randomValue = Math.random();
+    return Math.floor(randomValue * (maxValue * 1) + minValue);
+}
+
+
 Location.prototype.calculateCookiesPerHour = function () {
     var hourCookies;
     for (var i = 0; i < hourArr.length; i++) {
@@ -353,22 +360,24 @@ Location.prototype.calculateCookiesPerHour = function () {
     }
 };
 
+
 Location.prototype.render = function () {
     var table = document.getElementById('Cookies Table');
     var tr=document.createElement('tr');
     var td = document.createElement('td');
     td.textContent = this.name;
     tr.appendChild(td);
-    for (var i = 0; i < cookiesPerHour.length; i++) {
+    for (var i = 0; i < this.cookiesPerHour.length; i++) {
         var td = document.createElement('td');
         td.textContent = this.cookiesPerHour[i];
         tr.appendChild(td);
+    }
         var totalTd = document.createElement('td');
         totalTd.textContent = this.totalCookiesPerDay;
         tr.appendChild(totalTd);
         table.appendChild(tr);
 
-    }
+    
 
 };
 function createTheTable() {
