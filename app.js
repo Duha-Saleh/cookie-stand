@@ -144,22 +144,22 @@ for (var i = 0; i < locationArr.length; i++) {
 createTableFooter();
 
 
+var cookiesForm = document.getElementById('CookiesForm');
+cookiesForm.addEventListener('submit', addNewBranch);
+
+function addNewBranch(event) {
+    event.preventDefault();
+
+    var StandLocation = event.target.StandLocation.value;
+    var customermin = event.target.customermin.value;
+    var customermax = event.target.customermax.value;
+    var avg = event.target.avarage.value;
+
+    var newStore = new Location(StandLocation, parseInt(customermin), parseInt(customermax), avg, hourArr, 0, '', '');
+    newStore.renderedArray();
+    // createTable();
+    table.deleteTFoot();
+    tableFooter();
 
 
-var kittensForm =document.getElementById("CookiesForm");
-kittensForm.addEventListener('submit',call)
-function call(event) {event.preventDefault();}
-
-    var StandLocation=event.target.StandLocation.value;
-var Customermin=event.target.customermin.value;
-var Customermax=event.target.customermax.value;
-var avg=event.target.avarage.value;
-var newLocation= new Location (StandLocation,Customermin,Customermax,avg);
-
-
-var newLocation= new Location (StandLocation,Customermin,Customermax,avg);
-
-newLocation.getaRandomCus();
-newLocation.calculateCookiesPerHour();
-newLocation.render();
-console.log(newLocation)
+}
