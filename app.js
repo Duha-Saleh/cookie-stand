@@ -142,3 +142,24 @@ for (var i = 0; i < locationArr.length; i++) {
 }
 
 createTableFooter();
+
+
+
+
+var kittensForm =document.getElementById("CookiesForm");
+kittensForm.addEventListener('submit',call)
+function call(event) {event.preventDefault();}
+
+    var StandLocation=event.target.StandLocation.value;
+var Customermin=event.target.customermin.value;
+var Customermax=event.target.customermax.value;
+var avg=event.target.avarage.value;
+var newLocation= new Location (StandLocation,Customermin,Customermax,avg);
+
+
+var newLocation= new Location (StandLocation,Customermin,Customermax,avg);
+
+newLocation.getaRandomCus();
+newLocation.calculateCookiesPerHour();
+newLocation.render();
+console.log(newLocation)
